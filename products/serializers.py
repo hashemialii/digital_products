@@ -17,14 +17,14 @@ class FileSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True)
-    file_set = FileSerializer(many=True)
-    foo = serializers.SerializerMethodField()
+    files = FileSerializer(many=True)
+    # foo = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
-        fields = ('title', 'description', 'avatar', 'categories', 'file_set', 'foo')
+        fields = ('pk', 'title', 'description', 'avatar', 'categories', 'files')
 
-    def get_foo(self, obj):
-        # return obj.id
-        return 'Hello World'
+    # def get_foo(self, obj):
+    #     # return obj.id
+    #     return 'Hello World'
 
